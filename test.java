@@ -20,7 +20,7 @@ public class test {
         mc1.display(matrix2);
         
         do{
-System.out.print("Menu:\n----------------------\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Exit\nEnter your choice: ");
+System.out.print("Menu:\n----------------------\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Edit first matrix\n5.Edit second matrix\n6.Exit\nEnter your choice: ");
 int choice = input.nextInt();
 if(choice==1) {
         int result[][]= mc.add(matrix1, matrix2);
@@ -38,9 +38,14 @@ if (choice==3) {
  mc.display(result);
         
 }
+if(choice==4){ mc.Edit_Matrix(matrix1);
+        mc.display(matrix1);
+}
 
-if (choice==4)
-break;
+if(choice==5) mc1.Edit_Matrix(matrix2);
+
+if (choice==6){System.out.println("Good bye!");
+break;}
                 
         }while(true);
 

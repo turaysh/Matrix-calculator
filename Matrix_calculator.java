@@ -71,5 +71,19 @@ if(rows != b.length || cols != b[0].length){
             }
             System.out.println("\n");
         }
-    }
+     }
+public int [][] Edit_Matrix(int[][]a){
+    Scanner input = new Scanner(System.in);
+    for(int i=0;i<rows;i++)
+        for(int j =0;j<cols;j++){
+    
+    System.out.print("Enter the value of postion "+i+" "+j);
+          int element = input.nextInt();
+            a[i][j] = element;
+        }
+
+
+
+return a;
+}
 }
