@@ -20,7 +20,8 @@ public class test {
         mc1.display(matrix2);
         
         do{
-System.out.print("Menu:\n----------------------\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Edit first matrix\n5.Edit second matrix\n6.Exit\nEnter your choice: ");
+System.out.print("Menu:\n----------------------\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Edit first matrix\n"
++"5.Edit second matrix\n6.Determinant of first matrix\n7.Determinant of second matrix\n8.Display both matricies\n9.Exit\nEnter your choice: ");
 int choice = input.nextInt();
 if(choice==1) {
         int result[][]= mc.add(matrix1, matrix2);
@@ -42,9 +43,42 @@ if(choice==4){ mc.Edit_Matrix(matrix1);
         mc.display(matrix1);
 }
 
-if(choice==5) mc1.Edit_Matrix(matrix2);
-
-if (choice==6){System.out.println("Good bye!");
+if(choice==5){ mc1.Edit_Matrix(matrix2);
+        mc1.display(matrix2);
+}
+if(choice==6){
+    if(rows==2 && cols==2){
+        int det = mc.GetDeterminant2(matrix1);
+        System.out.println("Determinant of first matrix is: "+det);
+    }
+    else if (rows==3 && cols==3){
+        int det = mc.GetDeterminant3(matrix1);
+        System.out.println("Determinant of first matrix is: "+det);
+    }
+    else{
+        System.out.println("Determinant can only be calculated for 2x2 and 3x3 matrices.");
+    }
+}
+if(choice==7){
+    if(rows1==2 && cols1==2){
+        int det = mc1.GetDeterminant2(matrix2);
+        System.out.println("Determinant of second matrix is: "+det);
+    }
+    else if (rows1==3 && cols1==3){
+        int det = mc1.GetDeterminant3(matrix2);
+        System.out.println("Determinant of second matrix is: "+det);
+    }
+    else{
+        System.out.println("Determinant can only be calculated for 2x2 and 3x3 matrices.");
+    }
+}
+if(choice==8){
+    System.out.println("First matrix is: ");
+    mc.display(matrix1);
+    System.out.println("Second matrix is: ");
+    mc1.display(matrix2);
+}
+if (choice==9){System.out.println("Good bye!");
 break;}
                 
         }while(true);

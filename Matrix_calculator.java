@@ -1,3 +1,4 @@
+import java.math.*;
 import java.util.Scanner;
 public class Matrix_calculator {
     private int rows;
@@ -81,9 +82,33 @@ public int [][] Edit_Matrix(int[][]a){
           int element = input.nextInt();
             a[i][j] = element;
         }
-
-
-
 return a;
+}
+public int GetDeterminant2(int[][]a){
+ int  det = a[0][0]*a[1][1] - a[0][1]*a[1][0];
+ return det;
+    
+}
+public int GetDeterminant3(int[][]a){
+    
+    int det =0;
+    for(int i=0;i<3;i++){
+        int x = i-1; 
+        int y = 3-i;
+        int [][] temp = new int[2][2];
+    for(int j=0;j<2;j++){
+        if(x==1) x=0;
+        temp[j][0] = a[j+1][Math.abs(x)];
+        
+        if(y==3) y =2;
+        temp[j][1]=a[j+1][y];
+}
+System.out.println(temp[0][0]+" "+temp[0][1]+"\n"+temp[1][0]+" "+temp[1][1]);
+if(i==1)
+    det -= a[0][i]*GetDeterminant2(temp);
+else
+   det += a[0][i]*GetDeterminant2(temp);    
+    }
+ return det;
 }
 }
